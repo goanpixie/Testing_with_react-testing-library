@@ -1,9 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders App component', () => {
+    render(<App />);
+    expect(screen.getByText('My Awesome List')).toBeInTheDocument();
+    screen.debug();
+  });
 });
+
+
+
+// test('renders learn react link', () => {
+//   render(<App />);
+//   expect(screen.queryByText('My awesome list').innerHTML).toBe(
+//     'My awesome list'
+//   );
+// });
